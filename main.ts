@@ -6,6 +6,15 @@ namespace KSR030_4WD {
      
     const IIC_ADDRESS = 0x40
     const LED0_ON_L = 0x06
+
+
+    export enum Version {
+        //% blockId="V1" block="V1"
+        V1 = 0,
+        //% blockId="V2" block="V2"
+        V2 = 1,
+       
+    }
       
     export enum MotorNum4WD {
         //% blockId="M1A" block="M1A"
@@ -139,10 +148,13 @@ namespace KSR030_4WD {
 
 
     //% blockId=KSR030_4WD_Mecanum_Car
-    //% block="Mecanum_Car %index|Speed %speed"
+    //% block="Mecanum_Car %version|%index |Speed %speed"
     //% weight=87
     //% speed.min=0 speed.max=255
-    export function Mecanum_Car(index: MecanumState, speed: number): void {
+    export function Mecanum_Car(version:Version, index: MecanumState, speed: number): void {
+        if(version>0)
+            speed=-speed;
+
         switch (index) {
             case MecanumState.Forward: 
                 Motor_4WD(MotorNum4WD.M1B,speed);
