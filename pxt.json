@@ -1,27 +1,18 @@
 {
-    "name": "pxt-ksr030-4wd",
-    "version": "0.0.0",
-    "description": "",
+    "name": "KSR030_4WD",
+    "version": "0.4.0",
+    "description": "Extension for KAISE KSRobot KSR030 4WD Robot",
+    "license": "MIT", 
     "dependencies": {
-        "core": "*",
-        "radio": "*",
-        "microphone": "*"
+        "core": "*"
     },
     "files": [
+        "main.ts",
         "README.md",
-        "main.blocks",
-        "main.ts"
+        "_locales/zh/KSR030_4WD-strings.json" 
     ],
     "testFiles": [
-        "test.ts"
+      "tests.ts"
     ],
-    "public": true,
-    "targetVersions": {
-        "target": "5.0.12",
-        "targetId": "microbit"
-    },
-    "supportedTargets": [
-        "microbit"
-    ],
-    "preferredEditor": "blocksprj"
+    "public": true
 }
